@@ -16,7 +16,7 @@ const ShowUsers = () => {
     }, [dispatch])
 
   const [datas, setDatas] = useState([]);
-  const [sortbool, setsortbool] = useState(false)
+  const [sortbool, setsortbool] = useState(true)
   // useEffect(() => {
   //   const sortArray = type => {
   //     const types = {
@@ -45,6 +45,7 @@ const ShowUsers = () => {
    setDatas(users)
    setsortbool(!sortbool)
 }
+
 
     return  (
         <div className="form-table">
@@ -75,7 +76,7 @@ const ShowUsers = () => {
             {
               sortbool ?
               (
-                  datas.map((data, index) => (
+                  users.map((data, index) => (
                   <tr key={data?._id}>
                     <th scope="row">{index+1}</th>
                     <td>{`${data?.firstName} ${data?.lastName}`}</td>
@@ -84,7 +85,7 @@ const ShowUsers = () => {
                   </tr>
                 ))
               ):(
-                  users.map((data, index) => (
+                  datas.map((data, index) => (
                   <tr key={data?._id}>
                     <th scope="row">{index+1}</th>
                     <td>{`${data?.firstName} ${data?.lastName}`}</td>

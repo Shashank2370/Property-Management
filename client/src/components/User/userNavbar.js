@@ -40,7 +40,7 @@ const UserNavbar = () => {
     }, [location]);
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light" style={{"background-color":"#9C953E"}}>
+        <nav className="navbar navbar-expand-lg navbar-light" style={{"backgroundColor":"#9C953E"}}>
 
             <div className="container-fluid">
 
