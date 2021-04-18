@@ -36,7 +36,7 @@ const AdminNavbar =() =>{
     }, [location]);
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light" style={{"background-color":"#37B5B0"}}>
+        <nav className="navbar navbar-expand-lg navbar-light" style={{"backgroundColor":"#37B5B0"}}>
 
             <div className="container-fluid">
 

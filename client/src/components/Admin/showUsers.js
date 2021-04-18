@@ -4,7 +4,7 @@ import {showUsers} from '../../actions/adminActions';
 
 const ShowUsers = () => {
 
-    const state = useSelector(state => state.dataReducers.data)
+    const users = useSelector(state => state.dataReducers.data)
     //console.log(state);
 
     const dispatch = useDispatch();
@@ -16,8 +16,7 @@ const ShowUsers = () => {
     }, [dispatch])
 
   const [datas, setDatas] = useState([]);
-  const [sortType, setSortType] = useState();
-
+  const [sortbool, setsortbool] = useState(false)
   // useEffect(() => {
   //   const sortArray = type => {
   //     const types = {
@@ -31,16 +30,31 @@ const ShowUsers = () => {
 
   //   sortArray(sortType);
   // }, [sortType]); 
+  
+
+  const handlesortName = () => {
+    users.sort((a, b) => a.firstName.localeCompare(b.firstName))
+    //console.log(users);
+    setDatas(users)
+    setsortbool(!sortbool)
+ }
+
+ const handlesortCity = () => {
+   users.sort((a, b) => a.city.localeCompare(b.city))
+   //console.log(users);
+   setDatas(users)
+   setsortbool(!sortbool)
+}
 
     return  (
         <div className="form-table">
 
                 <div className="row "> 
                     <div className="col">
-                    <button type="submit" className="btn btn-outline-dark btn-md" value="firstName" onChange = {(event) => setSortType(event.target.value)}>Sort By Name</button>
+                    <button type="submit" className="btn btn-outline-warning btn-md" value="firstName" onClick = {handlesortName}>Sort By Name</button>
                     </div>
                     <div className="col">
-                    <button type="submit" className="btn btn-outline-dark btn-md" value="city" onChange = {(event) => setSortType(event.target.value)}>Sort By City</button>
+                    <button type="submit" className="btn btn-outline-warning btn-md" value="city" onClick = {handlesortCity}>Sort By City</button>
                     </div>
                 </div>
 
@@ -59,9 +73,18 @@ const ShowUsers = () => {
           <tbody>
           
             {
-              state &&
+              sortbool ?
               (
-                  state.map((data, index) => (
+                  datas.map((data, index) => (
+                  <tr key={data?._id}>
+                    <th scope="row">{index+1}</th>
+                    <td>{`${data?.firstName} ${data?.lastName}`}</td>
+                    <td>{data?.city}</td>
+                    <td>{data?.contactnumber}</td>
+                  </tr>
+                ))
+              ):(
+                  users.map((data, index) => (
                   <tr key={data?._id}>
                     <th scope="row">{index+1}</th>
                     <td>{`${data?.firstName} ${data?.lastName}`}</td>

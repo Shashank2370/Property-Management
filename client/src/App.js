@@ -16,7 +16,6 @@ import AddPost from "./components/User/addPost";
 import VerifyUser from "./components/User/verifyUser";
 import Posts from "./components/User/Posts/posts";
 
-
 const App = () => {
     
     return (
