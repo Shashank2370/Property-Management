@@ -8,6 +8,11 @@ const postReducers = (posts = [],action) => {
             if (action.payload?.message)
                 alert(action.payload.message);
             return action.payload;
+
+        case "ALL_POSTS":
+            if (action.payload?.message)
+                alert(action.payload.message);
+            return action.payload;
         
         case "CLEAR":
             return [];

@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from "react-router-dom";
 import { adminLogout } from "../../actions/adminActions";
+import { getAllposts } from "../../actions/postActions";
 
 
 const AdminNavbar =() =>{
@@ -78,6 +79,10 @@ const AdminNavbar =() =>{
 
                         <li className="nav-item">
                             <Link className="nav-link" onClick={()=>{}} to="/admin/showUsers">Users</Link>
+                        </li>
+
+                        <li className="nav-item">
+                            <Link className="nav-link" onClick = {()=> dispatch(getAllposts())} to="/admin/allPosts">All Posts</Link>
                         </li>
 
                         <li className="nav-item">

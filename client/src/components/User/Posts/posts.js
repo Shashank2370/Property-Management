@@ -1,7 +1,6 @@
 import React,{useEffect} from 'react'
 import { useSelector,useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { getPosts } from "../../../actions/postActions";
 import { Grid, CircularProgress, Container } from '@material-ui/core';
 import useStyles from './styles';
 

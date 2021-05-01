@@ -10,7 +10,7 @@ export const addPost = async (req,res) =>{
     if(!req.userId)
         return res.json({ message: "Unauthenticated" });
 
-   // try {
+   try {
         const {id} = req.params
         const {name,address,city,state,document,description} = req.body
 
@@ -19,9 +19,9 @@ export const addPost = async (req,res) =>{
 
         return res.json({message:"Post Added"})
 
-    // } catch (error) {
-    //     return res.json({message:"Something went wrong!"})
-    // }
+    } catch (error) {
+        return res.json({message:"Something went wrong!"})
+    }
 
 }
 
@@ -46,6 +46,27 @@ export const getPosts = async (req,res) => {
 
     } catch (error) {
         return res.json({message:"Something went wrong!"})
+    }
+ }
+
+ export const getAllposts = async (req,res) => {
+     
+    if(!req.userId)
+        return res.json({ message: "Unauthenticated" });
+
+    try {
+        
+        const data = await Post.find();
+
+        if(data.length===0){
+            return res.json({message:"No Posts found!"})
+        }
+        else{
+            return res.json({data})
+        }
+
+    } catch (error) {
+        res.json({message:"Something went wrong!"})
     }
  }
 

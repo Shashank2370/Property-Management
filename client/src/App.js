@@ -71,6 +71,10 @@ const App = () => {
                 <UserNavbar />
                 <Posts />
             </Route>
+            <Route exact path="/admin/allPosts" >
+                <AdminNavbar />
+                <Posts/>
+            </Route>
         </Switch>
     </Router>
     )

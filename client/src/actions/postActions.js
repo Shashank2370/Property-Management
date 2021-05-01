@@ -20,6 +20,16 @@ export const getPosts = (id) => async (dispatch) => {
     }
 }
 
+export const getAllposts = () => async (dispatch) => {
+    try {
+        const {data} = await api.getAllposts();
+
+        dispatch({type:"ALL_POSTS",payload:data})
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
 export const deletePost = (id) => async (dispatch) => {
     try {
         

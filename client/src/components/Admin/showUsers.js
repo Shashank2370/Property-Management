@@ -46,6 +46,7 @@ const ShowUsers = () => {
    setsortbool(!sortbool)
 }
 
+// console.log(users);
 
     return  (
         <div className="form-table">
@@ -76,6 +77,7 @@ const ShowUsers = () => {
             {
               sortbool ?
               (
+                users && (
                   users.map((data, index) => (
                   <tr key={data?._id}>
                     <th scope="row">{index+1}</th>
@@ -84,6 +86,7 @@ const ShowUsers = () => {
                     <td>{data?.contactnumber}</td>
                   </tr>
                 ))
+                )
               ):(
                   datas.map((data, index) => (
                   <tr key={data?._id}>

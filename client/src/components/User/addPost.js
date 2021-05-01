@@ -42,12 +42,12 @@ const AddPost = () => {
 
             <form onSubmit={handleSubmit}>
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col">
                         <button type="button" className="btn btn-outline-dark btn-md">Add Location</button>
                     </div>
                 </div>
-                <br/>
+                <br/> */}
 
                 <div className="row">
                     <div className="col">

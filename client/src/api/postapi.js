@@ -12,4 +12,5 @@ API.interceptors.request.use(req => {
 
 export const addPost = (id,formdata) => API.post(`/addPost/${id}`,formdata)
 export const getPosts = (id) => API.get(`/getPosts/${id}`)
+export const getAllposts = () => API.get('/getAllposts')
 export const deletePost = (id) => API.delete(`/deletePost/${id}`)
