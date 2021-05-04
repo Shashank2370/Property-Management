@@ -11,7 +11,7 @@ const Posts = () => {
     const classes = useStyles();
 
     const posts = useSelector((state) => state.postReducers.data)
-    console.log(posts);
+    //console.log(posts);
     const dispatch = useDispatch()
     const location = useLocation()
 
@@ -29,7 +29,7 @@ const Posts = () => {
                     <Container>
                         <Grid className={classes.container} container alignItems="stretch" spacing={5}>
                             {posts.map((post) => (
-                                <Grid key={post._id} item xs={12} sm={3} >
+                                <Grid key={post._id} item lg={3} md={4} sm={6} xs={12} >
                                     <Post post={post} />
                                 </Grid>
                             ))}

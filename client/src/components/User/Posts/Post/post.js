@@ -32,9 +32,9 @@ const Post = ({post}) => {
                 <Typography variant="h6">{post.name}</Typography>
                 <Typography variant="body2">{moment(post?.createdAt).format("DD MMM, YYYY")}</Typography>
             </div>
-            <div className={classes.overlay2}>
+            {/* <div className={classes.overlay2}>
                 <Button style={{ color: 'white' }} size="small" onClick={() => {}}><MoreHorizIcon fontSize="default" /></Button>
-            </div>
+            </div> */}
             <Typography className={classes.title} gutterBottom variant="h5" component="h2">{post.address}</Typography>
             <div className={classes.details}>
                 <Typography variant="h6" color="textSecondary" component="h2">{`${post.city}, ${post.state}`}</Typography>

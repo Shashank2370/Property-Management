@@ -71,14 +71,18 @@ export const verifyUser = (formdata,history) => async (dispatch) => {
 }
 
 export const userDelete = (id,history) => async (dispatch) => {
-   // try {
-        const {data} = await api.userDelete(id)
-        alert(data?.message)
+    try {
+        const input = prompt("Are You Sure (Y/N)")
+        if(input==="Y"){
+            const {data} = await api.userDelete(id)
+            alert(data?.message)
 
-        dispatch({type:"DELETE",payload:id})
-        history.push('/')
+            dispatch({type:"DELETE",payload:id})
+            history.push('/')
+        }
+        
 
-    // } catch (error) {
-    //     console.log(error);
-    // }
+    } catch (error) {
+        console.log(error);
+    }
 }

@@ -67,7 +67,7 @@ export const updateUserPassword = async (req,res) => {
         if(!Mongoose.Types.ObjectId.isValid(id))
             return res.json({message:`No User with id: ${id}`});
         
-        const foundUser = await User.findById(id);
+        let foundUser = await User.findById(id);
         if(!foundUser)
             return res.json({message:"No User found"})
         
@@ -82,11 +82,11 @@ export const updateUserPassword = async (req,res) => {
 
         const updatedUserPassword = {password:hashpassword,_id:id}
 
-        await User.findByIdAndUpdate(id,updatedUserPassword,{new:true});
+        foundUser = await User.findByIdAndUpdate(id,updatedUserPassword,{new:true});
 
         const token = jwt.sign({email :updatedUserPassword.email , id :updatedUserPassword._id}, JWT_TOKEN , {expiresIn : "1h"});
 
-        return res.json({result:updatedUserPassword,message:"Password Updated Suscessfully",token})
+        return res.json({result:foundUser,message:"Password Updated Suscessfully",token})
         
 
     } catch (error) {
