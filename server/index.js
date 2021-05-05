@@ -20,6 +20,10 @@ app.use('/admin',adminRoutes)
 app.use('/user',userRoutes)
 app.use('/user/post',postRoutes)
 
+app.get('/',(req,res) => {
+    res.send('Welcome To Property Management')
+})
+
 
 const PORT = process.env.PORT || 8000;
 

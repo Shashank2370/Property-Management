@@ -60,8 +60,8 @@ export const addAdmin = async (req,res) => {
 
 export const addUser = async (req,res) => {
 
-    if(!req.userId)
-        return res.json({ message: "Unauthenticated" });
+    // if(!req.userId)
+    //     return res.json({ message: "Unauthenticated" });
 
         try {
             const {firstName,lastName,email,contactnumber,aadhar,gender,city,state,password,confirmPassword} = req.body;

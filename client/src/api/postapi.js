@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({baseURL :'http://localhost:8000/user/post'}) 
+const API = axios.create({baseURL :'https://property-management-sap.herokuapp.com/user/post'}) 
 
 API.interceptors.request.use(req => {
     if (localStorage.getItem("profile")) {
